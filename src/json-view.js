@@ -2,7 +2,7 @@ import './jsonview.scss';
 
 import getDataType from './utils/getDataType';
 import { listen, detach, element } from './utils/dom';
-
+var initialVal=0;
 const classes = {
     HIDDEN: 'hidden',
     CARET_ICON: 'caret-icon',
@@ -104,10 +104,20 @@ function createNodeElement(node) {
   }
 
   if (node.children.length > 0) {
-    el.innerHTML = expandedTemplate({
-      key: Number(node.key+((node.depth==1)?5:0)),
-      size: getSizeString(node),
-    })
+    if(node.depth==1){
+      el.innerHTML = expandedTemplate({
+        key: Number(node.key+initialVal),
+        size: getSizeString(node),
+      })
+    }else{
+      el.innerHTML = expandedTemplate({
+        key: node.key,
+        size: getSizeString(node),
+      })
+    }
+      
+      
+    
     const caretEl = el.querySelector('.' + classes.CARET_ICON);
     node.dispose = listen(caretEl, 'click', () => toggleNode(node));
   } else {
@@ -209,6 +219,23 @@ function getJsonObject(data) {
  */
 export function create(jsonData) {
   const parsedData = getJsonObject(jsonData);
+  const rootNode = createNode({
+    value: parsedData,
+    key: 'document',
+    type: getDataType(parsedData),
+  });
+  createSubnode(parsedData, rootNode);
+  return rootNode;
+}
+
+/**
+ * Create tree
+ * @param {object | string} jsonData 
+ * @return {object}
+ */
+ export function createWithInitial(jsonData,valInit) {
+  const parsedData = getJsonObject(jsonData);
+  initialVal=valInit;
   const rootNode = createNode({
     value: parsedData,
     key: 'document',
