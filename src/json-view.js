@@ -166,6 +166,7 @@ function traverse(node, callback) {
       callback.isExpanded=false;
     }
     node.children.forEach((child) => {
+      console.log(callback.isExpanded)
       traverseDepth(child, callback,depth-1);
     });
   }
