@@ -106,7 +106,7 @@ function createNodeElement(node) {
   if (node.children.length > 0) {
     if(node.depth==1){
       el.innerHTML = expandedTemplate({
-        key: Number(node.key+initialVal),
+        key: Number(Number(node.key)+initialVal),
         size: getSizeString(node),
       })
     }else{
@@ -313,6 +313,7 @@ export function destroy(tree) {
 export default {
   render,
   create,
+  createWithInitial,
   renderJSON,
   expand,
   expandDepth,
