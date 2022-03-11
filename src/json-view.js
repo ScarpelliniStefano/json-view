@@ -147,12 +147,13 @@ function traverse(node, callback) {
  * Recursively traverse Tree object
  * @param {Object} node
  * @param {Callback} callback
+ * @param {Number} depth
  */
  function traverseDepth(node, callback,depth) {
   callback(node);
   if (node.children.length > 0 && depth>0) {
     node.children.forEach((child) => {
-      traverse(child, callback,depth-1);
+      traverseDepth(child, callback,depth-1);
     });
   }
 }
