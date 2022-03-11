@@ -144,6 +144,20 @@ function traverse(node, callback) {
 }
 
 /**
+ * Recursively traverse Tree object
+ * @param {Object} node
+ * @param {Callback} callback
+ */
+ function traverseDepth(node, callback,depth) {
+  callback(node);
+  if (node.children.length > 0 && depth>0) {
+    node.children.forEach((child) => {
+      traverse(child, callback,depth-1);
+    });
+  }
+}
+
+/**
  * Create node object
  * @param {object} opt options
  * @return {object}
@@ -238,6 +252,14 @@ export function expand(node) {
     child.isExpanded = true;
     setCaretIconDown(child);
   });
+}
+
+export function expandDepth(node,depth) {
+  traverseDepth(node, function(child) {
+    child.el.classList.remove(classes.HIDDEN);
+    child.isExpanded = true;
+    setCaretIconDown(child);
+  },depth);
 }
 
 export function collapse(node) {
