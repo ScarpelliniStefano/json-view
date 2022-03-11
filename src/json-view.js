@@ -287,6 +287,7 @@ export default {
   create,
   renderJSON,
   expand,
+  expandDepth,
   collapse,
   traverse,
   destroy
