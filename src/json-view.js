@@ -98,7 +98,7 @@ function createNodeElement(node) {
 
   const getSizeString = (node) => {
     const len = node.children.length;
-    if (node.type === 'array') return `[${len} fields]`;
+    if (node.type === 'array') return `[${len} documents]`;
     if (node.type === 'object') return `{${len} fields}`;
     return null;
   }
@@ -106,7 +106,7 @@ function createNodeElement(node) {
   if (node.children.length > 0) {
     if(node.depth==1){
       el.innerHTML = expandedTemplate({
-        key: Number(Number(node.key)+initialVal),
+        key: 'Document '+Number(Number(node.key)+initialVal),
         size: getSizeString(node),
       })
     }else{
