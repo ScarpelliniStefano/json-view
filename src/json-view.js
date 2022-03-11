@@ -163,19 +163,18 @@ function traverse(node, callback) {
   console.log(callback.isExpanded)
   callback(node);
   if (node.children.length > 0 && depth>0) {
-    if(depth==1){
-      callback.isExpanded=false;
-      node.children.forEach((child) => {
-        callback.setCaretIconRight(child);
-        traverseDepth(child, callback,depth-1);
-      });
-    }else{
+      if(depth==1){
+        callback=function(child) {
+          child.el.classList.remove(classes.HIDDEN);
+          child.isExpanded = true;
+          setCaretIconRight(child);
+        }
+      }
       node.children.forEach((child) => {
         traverseDepth(child, callback,depth-1);
       });
     }
     
-  }
 }
 
 /**
