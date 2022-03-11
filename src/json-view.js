@@ -98,8 +98,8 @@ function createNodeElement(node) {
 
   const getSizeString = (node) => {
     const len = node.children.length;
-    if (node.type === 'array') return `[${len}]`;
-    if (node.type === 'object') return `{${len}}`;
+    if (node.type === 'array') return `[${len} fields]`;
+    if (node.type === 'object') return `{${len} field}`;
     return null;
   }
 
