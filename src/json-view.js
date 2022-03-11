@@ -160,11 +160,15 @@ function traverse(node, callback) {
  * @param {Number} depth
  */
  function traverseDepth(node, callback,depth) {
-  callback(node);
+  
   if (node.children.length > 0 && depth>0) {
+    callback(node);
     node.children.forEach((child) => {
       traverseDepth(child, callback,depth-1);
     });
+  }else if(node.children.length>0 && depth==0){
+    node.isExpanded=false;
+    callback(node);
   }
 }
 
