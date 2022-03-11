@@ -105,14 +105,14 @@ function createNodeElement(node) {
 
   if (node.children.length > 0) {
     el.innerHTML = expandedTemplate({
-      key: node.key+5,
+      key: Number(node.key+((node.depth==1)?5:0)),
       size: getSizeString(node),
     })
     const caretEl = el.querySelector('.' + classes.CARET_ICON);
     node.dispose = listen(caretEl, 'click', () => toggleNode(node));
   } else {
     el.innerHTML = notExpandedTemplate({
-      key: node.key+1000,
+      key: node.key,
       value: node.value,
       type: typeof node.value
     })
