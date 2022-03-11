@@ -167,8 +167,9 @@ function traverse(node, callback) {
       traverseDepth(child, callback,depth-1);
     });
   }else if(node.children.length>0 && depth==0){
-    node.isExpanded=false;
-    callback(node);
+    let nodeTemp=node;
+    nodeTemp.isExpanded-false;
+    callback(nodeTemp);
   }
 }
 
