@@ -168,7 +168,8 @@ function traverse(node, callback) {
     });
   }else if(node.children.length>0 && depth==0){
     let nodeTemp=node;
-    nodeTemp.isExpanded-false;
+    nodeTemp.isExpanded=false;
+    console.log(node);
     callback(nodeTemp);
   }
 }
