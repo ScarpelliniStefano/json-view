@@ -160,13 +160,12 @@ function traverse(node, callback) {
  * @param {Number} depth
  */
  function traverseDepth(node, callback,depth) {
-  console.log(callback.isExpanded)
   callback(node);
   if (node.children.length > 0 && depth>0) {
       if(depth==1){
         callback=function(child) {
           child.el.classList.remove(classes.HIDDEN);
-          child.isExpanded = true;
+          child.isExpanded = false;
           setCaretIconRight(child);
         }
       }
