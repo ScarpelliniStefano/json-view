@@ -246,7 +246,7 @@ export function create(jsonData) {
   initialVal=valInit;
   const rootNode = createNode({
     value: parsedData,
-    key: 'document',
+    key: 'Documents',
     type: getDataType(parsedData),
   });
   createSubnode(parsedData, rootNode);
