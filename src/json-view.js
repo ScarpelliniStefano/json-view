@@ -160,13 +160,16 @@ function traverse(node, callback) {
  * @param {Number} depth
  */
  function traverseDepth(node, callback,depth) {
+  console.log(callback.isExpanded)
   callback(node);
   if (node.children.length > 0 && depth>0) {
     if(depth==1){
       callback.isExpanded=false;
+      node.children.forEach((child) => {
+        setCaretIconRight(child);
+      });
     }
     node.children.forEach((child) => {
-      console.log(callback.isExpanded)
       traverseDepth(child, callback,depth-1);
     });
   }
