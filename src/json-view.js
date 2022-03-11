@@ -166,12 +166,15 @@ function traverse(node, callback) {
     if(depth==1){
       callback.isExpanded=false;
       node.children.forEach((child) => {
-        setCaretIconRight(child);
+        callback.setCaretIconRight(child);
+        traverseDepth(child, callback,depth-1);
+      });
+    }else{
+      node.children.forEach((child) => {
+        traverseDepth(child, callback,depth-1);
       });
     }
-    node.children.forEach((child) => {
-      traverseDepth(child, callback,depth-1);
-    });
+    
   }
 }
 
