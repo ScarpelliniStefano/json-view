@@ -106,7 +106,7 @@ function createNodeElement(node) {
   if (node.children.length > 0) {
     if(node.depth==1){
       el.innerHTML = expandedTemplate({
-        key: 'Document '+Number(Number(node.key)+initialVal),
+        key: 'document '+Number(Number(node.key)+initialVal),
         size: getSizeString(node),
       })
     }else{
@@ -229,7 +229,7 @@ export function create(jsonData) {
   const parsedData = getJsonObject(jsonData);
   const rootNode = createNode({
     value: parsedData,
-    key: 'document',
+    key: 'Documents',
     type: getDataType(parsedData),
   });
   createSubnode(parsedData, rootNode);
