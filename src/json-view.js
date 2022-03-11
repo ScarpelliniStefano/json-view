@@ -99,7 +99,7 @@ function createNodeElement(node) {
   const getSizeString = (node) => {
     const len = node.children.length;
     if (node.type === 'array') return `[${len} fields]`;
-    if (node.type === 'object') return `{${len} field}`;
+    if (node.type === 'object') return `{${len} fields}`;
     return null;
   }
 
@@ -196,7 +196,7 @@ export function create(jsonData) {
   const parsedData = getJsonObject(jsonData);
   const rootNode = createNode({
     value: parsedData,
-    key: getDataType(parsedData),
+    key: 'document',
     type: getDataType(parsedData),
   });
   createSubnode(parsedData, rootNode);
