@@ -3,6 +3,7 @@ import './jsonview.scss';
 import getDataType from './utils/getDataType';
 import { listen, detach, element } from './utils/dom';
 var initialVal=0;
+var darkMode=false;
 const classes = {
     HIDDEN: 'hidden',
     CARET_ICON: 'caret-icon',
@@ -29,7 +30,7 @@ function notExpandedTemplate(params = {}) {
       <div class="empty-icon"></div>
       <div class="json-key">${key}</div>
       <div class="json-separator">:</div>
-      <div class="json-value json-${type}">${value}</div>
+      <div class="json-value json-${type}${darkMode?'-dark':''} ">${value}</div>
     </div>
   `
 }
@@ -37,6 +38,7 @@ function notExpandedTemplate(params = {}) {
 function createContainerElement() {
   const el = element('div');
   el.className = 'json-container';
+  if(darkMode) el.className='json-containerDark'
   return el;
 }
 
@@ -241,9 +243,10 @@ export function create(jsonData) {
  * @param {object | string} jsonData 
  * @return {object}
  */
- export function createWithInitial(jsonData,valInit) {
+ export function createWithInitial(jsonData,valInit,darkMode) {
   const parsedData = getJsonObject(jsonData);
   initialVal=valInit;
+  this.darkMode=darkMode;
   const rootNode = createNode({
     value: parsedData,
     key: 'Documents',
