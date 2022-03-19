@@ -41,7 +41,7 @@
 	}
 
 	.json-key-dark {
-		color: rgb(204, 204, 204);
+		color: rgb(233, 232, 232);
 		margin-right: 4px;
 		margin-left: 4px;
 	}
@@ -103,5 +103,15 @@
 	.fa-caret-right {
 		border-width: 5px 0 5px 6px;
 		border-color: transparent transparent transparent #808080;
+	}
+
+	.fa-caret-down-dark {
+		border-width: 6px 5px 0 5px;
+		border-color: #d1d1d1 transparent;
+	}
+
+	.fa-caret-right-dark {
+		border-width: 5px 0 5px 6px;
+		border-color: transparent transparent transparent #d1d1d1;
 	}
 
