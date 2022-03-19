@@ -8,12 +8,10 @@
 	box-sizing: border-box;
 	}
 
-	.json-containerDark {
-		font-family: "Roboto", sans-serif;
-		font-size: 16px;
-		background-color: #000;
+	.dark-mode {
+		background-color: black;
 		color: #808080;
-		box-sizing: border-box;
+	}
 
 	.line {
 		margin: 4px 0;
@@ -106,4 +104,4 @@
 		border-width: 5px 0 5px 6px;
 		border-color: transparent transparent transparent #808080;
 	}
-}
+

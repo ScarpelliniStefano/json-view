@@ -28,7 +28,7 @@ function notExpandedTemplate(params = {}) {
   return `
     <div class="line">
       <div class="empty-icon"></div>
-      <div class="json-key">${key}</div>
+      <div class="json-key${darkMode?'-dark':''}">${key}</div>
       <div class="json-separator">:</div>
       <div class="json-value json-${type}${darkMode?'-dark':''} ">${value}</div>
     </div>
@@ -38,7 +38,7 @@ function notExpandedTemplate(params = {}) {
 function createContainerElement() {
   const el = element('div');
   el.className = 'json-container';
-  if(darkMode) el.className='json-containerDark'
+  if(darkMode) el.classList.toggle("dark-mode");
   return el;
 }
 
