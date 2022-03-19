@@ -19,7 +19,7 @@ function expandedTemplate(params = {}) {
   return `
     <div class="line">
       <div class="caret-icon"><i class="fas fa-caret-right${darkMode?'-dark':''}"></i></div>
-      <div class="json-key">${key}</div>
+      <div class="json-key${darkMode?'-dark':''}">${key}</div>
       <div class="json-size">${size}</div>
     </div>
   `
