@@ -38,7 +38,7 @@ function notExpandedTemplate(params = {}) {
 function createContainerElement() {
   const el = element('div');
   el.className = 'json-container';
-  if(darkMode) el.classList.toggle("dark-mode");
+  if(darkMode) el.className = 'json-container dark-mode'
   return el;
 }
 
