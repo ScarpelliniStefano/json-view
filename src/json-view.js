@@ -243,10 +243,10 @@ export function create(jsonData) {
  * @param {object | string} jsonData 
  * @return {object}
  */
- export function createWithInitial(jsonData,valInit,darkMode) {
+ export function createWithInitial(jsonData,valInit,darkmode) {
   const parsedData = getJsonObject(jsonData);
   initialVal=valInit;
-  this.darkMode=darkMode;
+  darkMode=darkmode;
   const rootNode = createNode({
     value: parsedData,
     key: 'Documents',
