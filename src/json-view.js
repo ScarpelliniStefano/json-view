@@ -9,6 +9,8 @@ const classes = {
     CARET_ICON: 'caret-icon',
     CARET_RIGHT: 'fa-caret-right',
     CARET_DOWN: 'fa-caret-down',
+    CARET_DOWN_DARK: 'fa-caret-down-dark',
+    CARET_RIGHT_DARK: 'fa-caret-right-dark',
     ICON: 'fas'
 }
 
@@ -16,7 +18,7 @@ function expandedTemplate(params = {}) {
   const { key, size } = params;
   return `
     <div class="line">
-      <div class="caret-icon${darkMode?'-dark':''}"><i class="fas fa-caret-right${darkMode?'-dark':''}"></i></div>
+      <div class="caret-icon"><i class="fas fa-caret-right${darkMode?'-dark':''}"></i></div>
       <div class="json-key">${key}</div>
       <div class="json-size">${size}</div>
     </div>
@@ -65,6 +67,7 @@ function setCaretIconDown(node) {
     const icon = node.el.querySelector('.' + classes.ICON);
     if (icon) {
       icon.classList.replace(classes.CARET_RIGHT, classes.CARET_DOWN);
+      if(darkMode) icon.classList.replace(classes.CARET_RIGHT_DARK, classes.CARET_DOWN_DARK);
     }
   }
 }
@@ -74,6 +77,7 @@ function setCaretIconRight(node) {
     const icon = node.el.querySelector('.' + classes.ICON);
     if (icon) {
       icon.classList.replace(classes.CARET_DOWN, classes.CARET_RIGHT);
+      if(darkMode) icon.classList.replace(classes.CARET_DOWN_DARK, classes.CARET_RIGHT_DARK);
     }
   }
 }
